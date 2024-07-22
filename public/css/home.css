@@ -1,0 +1,29 @@
+/* HOme */
+.pou-display-container {
+  position: relative;
+}
+span.pou-padding {
+  padding-left: 40px;
+}
+
+.pou-image {
+  width: 100%;
+  height: 100vh;
+  background-image: url('/mnt/data/image.png'); /* pastikan path sesuai dengan lokasi file Anda */
+  background-size: cover; /* memastikan gambar menyesuaikan ukuran container tanpa mengubah rasio aspek */
+  background-position: center; /* memastikan gambar selalu berada di tengah */
+  background-repeat: no-repeat; /* memastikan gambar tidak diulang */
+}
+
+h1.Selamat {
+  padding: 0px 5px;
+}
+
+.pou-display-middle {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: white; /* Mengatur warna teks menjadi putih */
+  padding: 30px; /* Menambahkan padding untuk estetika */
+}

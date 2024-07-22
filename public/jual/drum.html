@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://kit.fontawesome.com/92d70a2fd8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href=" /css/jual.css" />
+    <style>
+      /* Style untuk navbar */
+      .navbar {
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .back-btn {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .back-btn i {
+        font-size: 20px;
+      }
+    </style>
+    <title>DRUM</title>
+  </head>
+  <header>
+    <div class="container">
+      <div class="data">
+        <!-- Navbar -->
+        <div class="navbar">
+          <div
+            class="back-btn"
+            onclick="window.location.href='/#store'"
+          >
+            <i class="fas fa-arrow-left"> Back to Home</i>
+          </div>
+        </div>
+        <!-- Header -->
+        <div class="header">
+          <p>DRUM</p>
+        </div>
+        <!-- Searchbar -->
+        <div class="searchbar-container">
+          <div class="searchbar">
+            <input
+              placeholder="Search..."
+              id="searchBar"
+              name="searchBar"
+              type="text"
+            />
+            <i class="fa-solid fa-magnifying-glass glass" id="btn"></i>
+          </div>
+        </div>
+        <!-- Produk -->
+        <div id="root"></div>
+      </div>
+    </div>
+  </header>
+  <body>
+    <script>
+      const product = [
+        {
+          id: 0,
+          image: " /images/drum1.jpg",
+          title: "Drum Akustik HEHE",
+          price: 2.3,
+        },
+        {
+          id: 1,
+          image: " /images/jual/drum2.jpeg",
+          title: "Drum Akustik GREY",
+          price: 3,
+        },
+        {
+          id: 2,
+          image: " /images/jual/drum3.jpeg",
+          title: "Drum Akustik AES",
+          price: 1.5,
+        },
+        {
+          id: 3,
+          image: " /images/jual/drum4.jpeg",
+          title: "Drum Akustik RED",
+          price: 1.8,
+        },
+        {
+          id: 4,
+          image: " /images/jual/drum5.jpeg",
+          title: "Drum Electric Yamaha",
+          price: 6.7,
+        },
+        {
+          id: 5,
+          image: " /images/jual/drum6.jpeg",
+          title: "Drum Electric OEM",
+          price: 7.9,
+        },
+      ];
+
+      const categories = [
+        ...new Set(
+          product.map((item) => {
+            return item;
+          })
+        ),
+      ];
+
+      document.getElementById("searchBar").addEventListener("keyup", (e) => {
+        const searchData = e.target.value.toLowerCase();
+        const filteredData = categories.filter((item) => {
+          return item.title.toLowerCase().includes(searchData);
+        });
+        displayItem(filteredData);
+      });
+
+      const displayItem = (items) => {
+        document.getElementById("root").innerHTML = items
+          .map((item) => {
+            var { image, title, price } = item;
+            // Ubah format angka harga menjadi format yang lebih umum
+            const formattedPrice = new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
+            }).format(price * 1000000);
+            return `<div class='box'>
+                <div class='img-box'>
+                    <img class='images' src=${image}></img>
+                </div> 
+                <div class='bottom'>
+                    <p>${title}</p>
+                    <h2>${formattedPrice}</h2>
+                    <button>BELI</button>
+                </div>
+            </div>`;
+          })
+          .join(""); // tambahkan join('') agar hasilnya menjadi string tunggal
+      };
+      displayItem(categories);
+    </script>
+  </body>
+</html>

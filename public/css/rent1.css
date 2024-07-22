@@ -1,0 +1,89 @@
+.rent-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  color: white;
+  background-image: linear-gradient(to bottom, #000000, #a0a0a0);
+}
+
+.rent-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.rent-card:hover {
+  transform: translateY(-5px);
+}
+
+.rent-head-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+}
+
+.rent-body-card {
+  padding: 20px;
+  background: white;
+}
+
+.rent-body-card h1 {
+  font-size: 20px;
+  margin: 10px 0;
+  text-align: center;
+  color: black;
+}
+
+.rent-body-card h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #fff;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buy:hover {
+  background-color: red;
+}
+
+/* Style for the rent container */
+.rent-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Style for rent cards */
+.rent-card {
+  width: 300px; /* Adjust width as needed */
+  margin: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .rent-card {
+    width: calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .rent-card {
+    width: calc(100% - 20px); /* One card per row */
+  }
+}
+
